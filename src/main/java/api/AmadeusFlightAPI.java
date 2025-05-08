@@ -33,7 +33,7 @@ public class AmadeusFlightAPI {
     public static List<Flight> fetchFlights(String origin, String destination, String date) throws Exception {
         List<Flight> flights = new ArrayList<>();
 
-        String json = getFlights(origin, destination, date); // usamos el método que ya tienes
+        String json = getFlights(origin, destination, date);
 
         JSONObject jsonObject = new JSONObject(json);
         JSONArray flightOffers = jsonObject.getJSONArray("data");
