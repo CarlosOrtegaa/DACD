@@ -40,6 +40,8 @@ public class AmadeusFlightProvider implements FlightProvider {
         List<Flight> flights = new ArrayList<>();
         JSONObject jsonObject = new JSONObject(json);
         JSONArray flightOffers = jsonObject.getJSONArray("data");
+        System.out.println("Número de vuelos recibidos de la API: " + flightOffers.length());
+
 
         for (int i = 0; i < flightOffers.length(); i++) {
             JSONObject offer = flightOffers.getJSONObject(i);
@@ -56,4 +58,6 @@ public class AmadeusFlightProvider implements FlightProvider {
 
         return flights;
     }
+
+
 }

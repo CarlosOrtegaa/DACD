@@ -1,6 +1,6 @@
 package adapters.in;
 
-import application.WeatherCaptureService;
+import application.publisher.WeatherCaptureService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
