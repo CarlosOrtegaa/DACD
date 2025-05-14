@@ -32,7 +32,7 @@ public class FlightEventStoreBuilder {
             Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
             Topic topic = session.createTopic(TOPIC_NAME);
 
-            // Suscripción duradera
+
             MessageConsumer consumer = session.createDurableSubscriber(topic, "flight-event-subscriber");
 
             consumer.setMessageListener(message -> {
