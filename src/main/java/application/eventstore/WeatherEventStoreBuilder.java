@@ -32,7 +32,7 @@ public class WeatherEventStoreBuilder {
             Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
             Topic topic = session.createTopic(TOPIC_NAME);
 
-            // Suscripción duradera
+
             MessageConsumer consumer = session.createDurableSubscriber(topic, "weather-event-subscriber");
 
             consumer.setMessageListener(message -> {

@@ -10,7 +10,7 @@ import application.consumer.FlightMessageListener;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        MockFlightProvider flightProvider = new MockFlightProvider();
+        AmadeusFlightProvider flightProvider = new AmadeusFlightProvider();
         OpenWeatherProvider weatherProvider = new OpenWeatherProvider();
 
         SQLiteFlightRepository flightRepo = new SQLiteFlightRepository();
