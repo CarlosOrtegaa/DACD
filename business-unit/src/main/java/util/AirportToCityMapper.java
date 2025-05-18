@@ -13,11 +13,10 @@ public class AirportToCityMapper {
         airportToCityMap.put("FCO", "Rome");
         airportToCityMap.put("ATH", "Athens");
         airportToCityMap.put("BER", "Berlin");
-        // Agrega más equivalencias de códigos de aeropuerto a ciudades aquí
     }
 
     public static String getCityFromAirportCode(String airportCode) {
-        return airportToCityMap.getOrDefault(airportCode, airportCode);  // Devuelve el código del aeropuerto si no se encuentra la ciudad
+        return airportToCityMap.getOrDefault(airportCode, airportCode);
     }
 }
 

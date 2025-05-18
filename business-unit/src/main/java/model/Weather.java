@@ -1,15 +1,13 @@
 package model;
 
 public class Weather {
+
     private String city;
     private String dateTime;
     private double temperature;
     private String description;
     private int humidity;
     private double windSpeed;
-
-    public Weather() {
-    }
 
     public Weather(String city, String dateTime, double temperature, String description, int humidity, double windSpeed) {
         this.city = city;

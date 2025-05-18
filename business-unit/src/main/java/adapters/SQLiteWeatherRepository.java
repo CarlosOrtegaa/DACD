@@ -32,7 +32,7 @@ public class SQLiteWeatherRepository implements WeatherRepository {
     public List<Weather> getAllWeatherEvents() throws SQLException {
         List<Weather> weatherEvents = new ArrayList<>();
 
-        String sql = "SELECT * FROM weather_events";  // Ajusta el nombre de la tabla si es necesario
+        String sql = "SELECT * FROM weather_events";
 
         try (Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {

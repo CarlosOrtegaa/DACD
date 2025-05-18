@@ -1,4 +1,4 @@
-package util;
+package presentation;
 
 import adapters.EventHistoryLoader;
 import adapters.SQLiteFlightRepository;
