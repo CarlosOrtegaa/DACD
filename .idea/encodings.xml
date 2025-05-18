@@ -3,6 +3,8 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/Weather_feeder/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Weather_feeder/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/business-unit/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/business-unit/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/event-store-builder/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/event-store-builder/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/flight-feeder/src/main/java" charset="UTF-8" />
