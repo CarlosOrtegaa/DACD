@@ -80,7 +80,7 @@ El **datamart** local combina eventos de ambas fuentes para permitir consultas c
 
 ### Unidad de Negocio
 
-![Business](https://github.com/CarlosOrtegaa/DACD/blob/main/Diagramas/Diagrama_Business.png?raw=true)
+![Business](https://github.com/CarlosOrtegaa/DACD/blob/main/Diagramas/Diagrama_Buisness.png?raw=true)
 
 
 6. Principios y patrones de diseño aplicados
@@ -177,7 +177,7 @@ Steps:
 
 ### Business Unit
 
-![Business Unit](https://github.com/CarlosOrtegaa/DACD/blob/main/Diagramas/Diagrama_Business.png?raw=true)
+![Business Unit](https://github.com/CarlosOrtegaa/DACD/blob/main/Diagramas/Diagrama_Buisness.png?raw=true)
 
 
 6. Applied Principles and Design Patterns
