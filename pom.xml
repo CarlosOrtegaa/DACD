@@ -13,6 +13,7 @@
         <module>flight-feeder</module>
         <module>weather-feeder</module>
         <module>event-store-builder</module>
+        <module>business-unit</module>
     </modules>
 
     <properties>

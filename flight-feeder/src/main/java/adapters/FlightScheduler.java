@@ -13,7 +13,7 @@ public class FlightScheduler {
 
     public void start() {
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-        Runnable task = () -> service.captureFlights("MAD", "LHR", "2025-06-02");
+        Runnable task = () -> service.captureFlights("LPA", "MAD", "2025-06-01");
         scheduler.scheduleAtFixedRate(task, 0, 3, TimeUnit.MINUTES);
     }
 }
