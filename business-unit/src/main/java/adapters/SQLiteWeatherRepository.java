@@ -51,6 +51,16 @@ public class SQLiteWeatherRepository implements WeatherRepository {
         return weatherEvents;
     }
 
+    public boolean weatherExists(Weather weather) throws SQLException {
+        String sql = "SELECT COUNT(*) FROM weather_events WHERE city = ? AND datetime = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, weather.getCity());
+            pstmt.setString(2, weather.getDateTime());
+            ResultSet rs = pstmt.executeQuery();
+            return rs.getInt(1) > 0;
+        }
+    }
+
     public void close() throws SQLException {
         if (conn != null) conn.close();
     }

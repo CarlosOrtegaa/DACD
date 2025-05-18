@@ -52,6 +52,19 @@ public class SQLiteFlightRepository implements FlightRepository {
         return flightEvents;
     }
 
+    @Override
+    public boolean flightExists(Flight flight) throws SQLException {
+        String sql = "SELECT COUNT(*) FROM flight_events WHERE origin = ? AND destination = ? AND departure_time = ? AND arrival_time = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, flight.getOrigin());
+            pstmt.setString(2, flight.getDestination());
+            pstmt.setString(3, flight.getDepartureDateTime());
+            pstmt.setString(4, flight.getArrivalDateTime());
+            ResultSet rs = pstmt.executeQuery();
+            return rs.getInt(1) > 0;
+        }
+    }
+
     public void close() throws SQLException {
         if (conn != null) conn.close();
     }

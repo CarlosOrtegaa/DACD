@@ -4,6 +4,8 @@ import model.Flight;
 import model.Weather;
 import util.AirportToCityMapper;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,10 +14,16 @@ import java.util.LinkedHashMap;
 
 public class DestinationRanking {
 
-    public static Map<String, Double> rankDestinations(List<Flight> flights, List<Weather> weatherEvents) {
+    public static Map<String, Double> rankDestinations(List<Flight> flights, List<Weather> weatherEvents, String targetDate) {
         Map<String, Double> destinationRanking = new HashMap<>();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-        for (Flight flight : flights) {
+        LocalDate date = LocalDate.parse(targetDate, formatter);
+        List<Flight> filteredFlights = flights.stream()
+                .filter(flight -> LocalDate.parse(flight.getDepartureDateTime().substring(0, 10), formatter).isEqual(date))
+                .collect(Collectors.toList());
+
+        for (Flight flight : filteredFlights) {
 
             String city = AirportToCityMapper.getCityFromAirportCode(flight.getDestination());
 
@@ -38,6 +46,7 @@ public class DestinationRanking {
     private static Weather findWeatherForCity(String city, List<Weather> weatherEvents) {
         return weatherEvents.stream()
                 .filter(weather -> weather.getCity().equals(city))
+                .sorted((w1, w2) -> w2.getDateTime().compareTo(w1.getDateTime()))
                 .findFirst()
                 .orElse(null);
     }
