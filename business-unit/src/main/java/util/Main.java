@@ -1,5 +1,6 @@
 package util;
 
+import adapters.EventHistoryLoader;
 import adapters.SQLiteFlightRepository;
 import adapters.SQLiteWeatherRepository;
 import adapters.EventSubscriber;
@@ -9,11 +10,9 @@ public class Main {
         SQLiteFlightRepository flightRepo = new SQLiteFlightRepository();
         SQLiteWeatherRepository weatherRepo = new SQLiteWeatherRepository();
 
-        // Cargar eventos históricos desde el event store, pero ya fueron cargados
-        // EventHistoryLoader historyLoader = new EventHistoryLoader(flightRepo, weatherRepo);
-        // historyLoader.loadHistoricalEvents();
+        EventHistoryLoader historyLoader = new EventHistoryLoader(flightRepo, weatherRepo);
+        historyLoader.loadHistoricalEvents();
 
-        // Empezar a consumir eventos en tiempo real
         EventSubscriber subscriber = new EventSubscriber(flightRepo, weatherRepo);
         subscriber.start();
 

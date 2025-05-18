@@ -13,7 +13,7 @@ public class WeatherScheduler {
 
     public void start() {
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-        Runnable task = () -> service.captureWeather("Budapest");
+        Runnable task = () -> service.captureWeather("Dublin");
         scheduler.scheduleAtFixedRate(task, 0, 5, TimeUnit.MINUTES);
     }
 }

@@ -3,8 +3,6 @@ package adapters;
 import model.Flight;
 import model.Weather;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import ports.FlightRepository;
 import ports.WeatherRepository;
 
@@ -46,7 +44,10 @@ public class EventHistoryLoader {
                     String line;
                     while ((line = reader.readLine()) != null) {
                         Flight flight = gson.fromJson(line, Flight.class);
-                        flightRepository.save(flight);
+
+                        if (!flightRepository.flightExists(flight)) {
+                            flightRepository.save(flight);
+                        }
                     }
                 }
             }
@@ -66,7 +67,10 @@ public class EventHistoryLoader {
                     String line;
                     while ((line = reader.readLine()) != null) {
                         Weather weather = gson.fromJson(line, Weather.class);
-                        weatherRepository.save(weather);
+
+                        if (!weatherRepository.weatherExists(weather)) {
+                            weatherRepository.save(weather);
+                        }
                     }
                 }
             }

@@ -29,7 +29,9 @@ public class BusinessUnit {
                 .filter(flight -> flight.getOrigin().equals("LPA"))
                 .collect(Collectors.toList());
 
-        return DestinationRanking.rankDestinations(lpaFlights, weatherEvents);
+        String targetDate = "2025-06-01";
+
+        return DestinationRanking.rankDestinations(lpaFlights, weatherEvents, targetDate);
     }
 
     public void close() throws SQLException {
