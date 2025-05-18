@@ -66,7 +66,22 @@ El **datamart** local combina eventos de ambas fuentes para permitir consultas c
 - Comunicación vía ActiveMQ (Publisher/Subscriber).
 - Persistencia mediante SQLite y archivos `.events`.
 
-(Diagramas deben añadirse como imagen si se entrega en formato visual)
+### Event Store
+
+![Eventstore](https://github.com/CarlosOrtegaa/DACD/blob/main/Diagramas/Diagrama_Eventstore.png?raw=true)
+
+### Módulo Flight
+
+![Flight](https://github.com/CarlosOrtegaa/DACD/blob/main/Diagramas/Diagrama_Flight.png?raw=true)
+
+### Módulo Weather
+
+![Weather](https://github.com/CarlosOrtegaa/DACD/blob/main/Diagramas/Diagrama_Weather.png?raw=true)
+
+### Unidad de Negocio
+
+![Business](https://github.com/CarlosOrtegaa/DACD/blob/main/Diagramas/Diagrama_Business.png?raw=true)
+
 
 6. Principios y patrones de diseño aplicados
 --------------------------------------------
@@ -148,7 +163,22 @@ Steps:
 - Communication via ActiveMQ (Publisher/Subscriber).
 - Persistence via SQLite and `.events` files.
 
-(Include architecture diagrams as images if submitting a visual document)
+### Event Store
+
+![Event Store](https://github.com/CarlosOrtegaa/DACD/blob/main/Diagramas/Diagrama_Eventstore.png?raw=true)
+
+### Flight Module
+
+![Flight Module](https://github.com/CarlosOrtegaa/DACD/blob/main/Diagramas/Diagrama_Flight.png?raw=true)
+
+### Weather Module
+
+![Weather Module](https://github.com/CarlosOrtegaa/DACD/blob/main/Diagramas/Diagrama_Weather.png?raw=true)
+
+### Business Unit
+
+![Business Unit](https://github.com/CarlosOrtegaa/DACD/blob/main/Diagramas/Diagrama_Business.png?raw=true)
+
 
 6. Applied Principles and Design Patterns
 -----------------------------------------
