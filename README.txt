@@ -22,36 +22,37 @@ El **datamart** local combina eventos de ambas fuentes para permitir consultas c
 3. Instrucciones de compilación y ejecución
 -------------------------------------------
 
-Requisitos previos:
+**Requisitos previos:**
 - Java 21
 - Apache ActiveMQ (por defecto en el puerto 61616)
 - Maven
 - IntelliJ IDEA (recomendado)
 
-Pasos:
+**Pasos:**
 1. Clonar el repositorio y abrir el proyecto en IntelliJ.
 2. Ejecutar ActiveMQ:
    - Descargar desde https://activemq.apache.org/components/classic/download/
    - Extraer y lanzar con `./bin/activemq start` (Linux/macOS) o `bin\activemq.bat start` (Windows)
 3. Compilar todos los módulos: `mvn clean install`
 4. Ejecutar los módulos:
+   - `event-store-builder.Main`: Almacena eventos recibidos en carpetas estructuradas
+   - `business-unit.Main`: Suscribe al sistema al broker y almacena eventos en el datamart local (SQLite)
    - `weather-feeder.Main`: Publica datos meteorológicos
    - `flight-feeder.Main`: Publica datos de vuelos
-   - `event-store-builder.Main`: Almacena eventos recibidos en carpetas estructuradas
-   - `business-unit.Main`: Lanza la interfaz para consultar y analizar los datos
+   - `business-unit.CLI`: Lanza la interfaz de consola para consultar y analizar los datos
+
+> Los archivos `.events` generados durante las pruebas están incluidos en el repositorio en el directorio `eventstore/`.
+
+> El archivo `project.db` con los datos persistidos de SQLite también se incluye para facilitar la evaluación.
+
 
 4. Ejemplos de uso
 ------------------
 
 **Consulta en la interfaz:**
-- Introducir un aeropuerto origen (ej. "MAD") y ver posibles vuelos con su predicción meteorológica.
-- Cargar eventos históricos de una fecha específica y consultarlos mediante filtros.
+- Introducir una fecha (ej. "2025-06-01") y ver los destinos con mejor combinación de precio y clima.
+- Seleccionar un destino del ranking y visualizar detalles del vuelo y del tiempo previsto.
 
-**Petición REST (si habilitado):**
-```
-GET http://localhost:7000/flights?origin=MAD
-GET http://localhost:7000/weather?city=London
-```
 
 5. Arquitectura de sistema y arquitectura de aplicación
 -------------------------------------------------------
@@ -116,23 +117,24 @@ Steps:
    - Extract and launch with `./bin/activemq start` (Linux/macOS) or `bin\activemq.bat start` (Windows)
 3. Compile all modules: `mvn clean install`
 4. Run the modules:
+   - `event-store-builder.Main`: Stores received events in structured folders
+   - `business-unit.Main`: Subscribes to the broker and stores events in the local datamart (SQLite)
    - `weather-feeder.Main`: Publishes weather data
    - `flight-feeder.Main`: Publishes flight data
-   - `event-store-builder.Main`: Stores received events in structured folders
-   - `business-unit.Main`: Launches the interface to query and analyze data
+   - `business-unit.CLI`: Launches the console interface to query and analyze the data
+
+> The `.events` files generated during testing are included in the repository under the `eventstore/` directory.
+
+> The `project.db` file with the persisted SQLite data is also included to facilitate evaluation.
+
 
 4. Usage Examples
 -----------------
 
 **Console Interface:**
-- Enter a departure airport (e.g., "MAD") to see available flights and their weather conditions.
-- Load historical events for a specific date and filter the results.
+- Enter a date (e.g., "2025-06-01") to see destinations with the best combination of price and weather.
+- Select a destination from the ranking to view flight details and the corresponding weather forecast.
 
-**REST Requests (if enabled):**
-```
-GET http://localhost:7000/flights?origin=MAD
-GET http://localhost:7000/weather?city=London
-```
 
 5. System and Application Architecture
 --------------------------------------
