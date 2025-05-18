@@ -1,15 +1,13 @@
 package model;
 
 public class Flight {
+
     private String origin;
     private String destination;
     private String departureDateTime;
     private String arrivalDateTime;
     private String airline;
     private double price;
-
-    public Flight() {
-    }
 
     public Flight(String origin, String destination, String departureDateTime, String arrivalDateTime, String airline, double price) {
         this.origin = origin;
