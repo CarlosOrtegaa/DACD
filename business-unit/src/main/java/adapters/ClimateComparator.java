@@ -21,6 +21,9 @@ public class ClimateComparator {
     }
 
     public static double evaluateComfort(Weather weather) {
+        if (weather == null) {
+            return 0.0;
+        }
         double comfortScore = 0;
 
         if (weather.getTemperature() >= 15 && weather.getTemperature() <= 25) {
